@@ -6,6 +6,7 @@ package
 	import flash.events.Event;
 	
 	import agalLesson.Lesson3;
+	import agalLesson.Lesson4;
 	import agalLesson.Main;
 
 	[SWF(width="640", height="480", frameRate="60", backgroundColor="#000000")]	
@@ -43,7 +44,7 @@ package
 		
 		private function get mainClass():Class
 		{
-			return Lesson3;
+			return Lesson4;
 		}
 		
 	}

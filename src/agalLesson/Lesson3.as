@@ -112,29 +112,7 @@ package agalLesson
 			vertexBuffer.uploadFromVector(meshVertexData, 0, meshVertexData.length/8);
 			
 			// Generate mipmaps
-			myTexture = context3D.createTexture(textureSize, textureSize, 
-				Context3DTextureFormat.BGRA, false);
-			var ws:int = myTextureData.bitmapData.width;
-			var hs:int = myTextureData.bitmapData.height;
-			var level:int = 0;
-			var tmp:BitmapData;
-			var transform:Matrix = new Matrix();
-			tmp = new BitmapData(ws, hs, true, 0x00000000);
-			while ( ws >= 1 && hs >= 1 )
-			{ 
-				tmp.draw(myTextureData.bitmapData, transform, null, null, null, true); 
-				myTexture.uploadFromBitmapData(tmp, level);
-				transform.scale(0.5, 0.5);
-				level++;
-				ws >>= 1;
-				hs >>= 1;
-				if (hs && ws) 
-				{
-					tmp.dispose();
-					tmp = new BitmapData(ws, hs, true, 0x00000000);
-				}
-			}
-			tmp.dispose();
+			myTexture = drawTexture(context3D, myTextureData.bitmapData);
 			
 			// create projection matrix for our 3D scene
 			projectionMatrix.identity();
