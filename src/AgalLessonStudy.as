@@ -4,6 +4,10 @@ package
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
+	
+	import agalLesson.Lesson3;
+	import agalLesson.Main;
+
 	[SWF(width="640", height="480", frameRate="60", backgroundColor="#000000")]	
 	public class AgalLessonStudy extends Sprite
 	{
@@ -32,9 +36,15 @@ package
 		
 		private function onContext3DCreate(event:Event):void 
 		{
-			
+			var main:Main = new mainClass();
+			this.addChild(main);
+			main.init();
 		}
 		
+		private function get mainClass():Class
+		{
+			return Lesson3;
+		}
 		
 	}
 }
